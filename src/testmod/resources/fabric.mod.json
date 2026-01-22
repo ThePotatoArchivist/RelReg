@@ -17,6 +17,9 @@
 	"entrypoints": {
 		"main": [
 			"archives.tater.relreg.test.ReloadableRegistriesTest"
+		],
+		"fabric-datagen": [
+			"archives.tater.relreg.test.ReloadableRegistriesTestDataGenerator"
 		]
 	},
 	"mixins": [

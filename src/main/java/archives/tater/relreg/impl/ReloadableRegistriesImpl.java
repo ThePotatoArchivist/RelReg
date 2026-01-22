@@ -25,7 +25,7 @@ import net.minecraft.world.level.storage.loot.LootDataType;
 
 import com.google.common.collect.Lists;
 import org.jetbrains.annotations.ApiStatus;
-import org.jetbrains.annotations.Unmodifiable;
+import org.jetbrains.annotations.UnmodifiableView;
 import org.jspecify.annotations.Nullable;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,6 +36,7 @@ import java.util.Set;
 import java.util.function.Consumer;
 import java.util.stream.Stream;
 
+import static java.util.Collections.unmodifiableList;
 import static java.util.Objects.requireNonNullElse;
 import static net.minecraft.commands.Commands.argument;
 import static net.minecraft.commands.Commands.literal;
@@ -80,12 +81,12 @@ public class ReloadableRegistriesImpl implements ModInitializer {
 		SYNCED_RELOADABLE_REGISTRIES.add(new RegistryDataLoader.RegistryData<>(key, syncCodec, false));
 	}
 
-    public static @Unmodifiable List<ResourceKey<? extends Registry<?>>> getReloadableRegistries() {
-		return RELOADABLE_REGISTRIES;
+    public static @UnmodifiableView List<ResourceKey<? extends Registry<?>>> getReloadableRegistries() {
+		return unmodifiableList(RELOADABLE_REGISTRIES);
     }
 
-    public static @Unmodifiable List<ResourceKey<? extends Registry<?>>> getCustomReloadableRegistries() {
-        return CUSTOM_RELOADABLE_REGISTRIES;
+    public static @UnmodifiableView List<ResourceKey<? extends Registry<?>>> getCustomReloadableRegistries() {
+        return unmodifiableList(CUSTOM_RELOADABLE_REGISTRIES);
     }
 
 	public static Stream<LootDataType<?>> streamLootDataTypes() {

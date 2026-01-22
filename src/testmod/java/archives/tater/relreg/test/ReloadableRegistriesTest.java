@@ -11,9 +11,10 @@ import net.minecraft.resources.ResourceKey;
 
 public class ReloadableRegistriesTest implements ModInitializer {
     public static final ResourceKey<Registry<String>> TEST = ResourceKey.createRegistryKey(Identifier.fromNamespaceAndPath("relregtest", "test"));
+    public static final Codec<String> TEST_CODEC = Codec.STRING.fieldOf("x").codec();
 
     @Override
     public void onInitialize() {
-        ReloadableRegistries.registerSynced(TEST, Codec.STRING.fieldOf("x").codec());
+        ReloadableRegistries.registerSynced(TEST, TEST_CODEC);
     }
 }

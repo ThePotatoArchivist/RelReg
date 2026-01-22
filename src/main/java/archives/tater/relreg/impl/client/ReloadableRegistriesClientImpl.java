@@ -42,7 +42,7 @@ public class ReloadableRegistriesClientImpl implements ClientModInitializer {
             );
         });
 
-        if (FabricLoader.getInstance().isDevelopmentEnvironment())
+        if (FabricLoader.getInstance().isDevelopmentEnvironment() && FabricLoader.getInstance().isModLoaded("clientarguments"))
             registerCommands();
     }
 
