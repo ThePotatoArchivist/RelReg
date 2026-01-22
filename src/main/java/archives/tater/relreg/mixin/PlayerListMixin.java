@@ -1,7 +1,7 @@
 package archives.tater.relreg.mixin;
 
-import archives.tater.relreg.impl.sync.SyncReloadableRegistriesPayload;
 import archives.tater.relreg.impl.sync.ReloadableRegistrySync;
+import archives.tater.relreg.impl.sync.SyncReloadableRegistriesPayload;
 
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
@@ -15,7 +15,6 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.protocol.Packet;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerGamePacketListenerImpl;
@@ -32,7 +31,7 @@ public class PlayerListMixin {
             at = @At("HEAD")
     )
     private void createPayload(CallbackInfo ci, @Share("payload")LocalRef<SyncReloadableRegistriesPayload> payload) {
-        payload.set(ReloadableRegistrySync.getSyncPayload((RegistryAccess) server.reloadableRegistries().lookup()));
+        payload.set(ReloadableRegistrySync.getSyncPayload(server.reloadableRegistries().get()));
     }
 
     @WrapOperation(
