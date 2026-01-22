@@ -1,3 +1,4 @@
 classTweaker v1 named
-transitive-inject-interface net/minecraft/client/multiplayer/ClientLevel archives/tater/relreg/api/client/HasClientReloadableRegistries
-transitive-inject-interface net/minecraft/client/multiplayer/ClientPacketListener archives/tater/relreg/api/client/HasClientReloadableRegistries
+transitive-inject-interface net/minecraft/server/MinecraftServer archives/tater/relreg/api/HasReloadableRegistries
+transitive-inject-interface net/minecraft/world/level/Level archives/tater/relreg/api/HasReloadableRegistries
+transitive-inject-interface net/minecraft/client/multiplayer/ClientPacketListener archives/tater/relreg/api/HasReloadableRegistries

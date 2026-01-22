@@ -4,8 +4,10 @@
   "compatibilityLevel": "JAVA_21",
   "mixins": [
     "LootDataTypeMixin",
+    "MinecraftServerMixin",
     "PlayerListMixin",
-    "RegistrySynchronizationAccessor"
+    "RegistrySynchronizationAccessor",
+    "ServerLevelMixin"
   ],
   "injectors": {
     "defaultRequire": 1

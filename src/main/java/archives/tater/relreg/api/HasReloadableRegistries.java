@@ -1,13 +1,14 @@
-package archives.tater.relreg.api.client;
+package archives.tater.relreg.api;
 
-import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.multiplayer.ClientPacketListener;
 import net.minecraft.core.RegistryAccess;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.world.level.Level;
 
 /**
- * Extension to {@link ClientLevel} and {@link ClientPacketListener} allowing access to reloadable registries
+ * Extension to {@link Level}, {@link MinecraftServer} and {@link ClientPacketListener} allowing access to reloadable registries
  */
-public interface HasClientReloadableRegistries {
+public interface HasReloadableRegistries {
     /**
      * @return A RegistryAccess containing all registries including synced reloadable ones
      */

@@ -1,6 +1,6 @@
 package archives.tater.relreg.mixin.client;
 
-import archives.tater.relreg.api.client.HasClientReloadableRegistries;
+import archives.tater.relreg.api.HasReloadableRegistries;
 import archives.tater.relreg.impl.client.MutableReloadableRegistries;
 import archives.tater.relreg.impl.client.ReloadableClientRegistryLayer;
 
@@ -20,7 +20,7 @@ import net.minecraft.core.RegistryAccess;
 import net.minecraft.network.Connection;
 
 @Mixin(ClientPacketListener.class)
-public class ClientPacketListenerMixin implements HasClientReloadableRegistries, MutableReloadableRegistries {
+public class ClientPacketListenerMixin implements HasReloadableRegistries, MutableReloadableRegistries {
     @Shadow
     @Final
     private RegistryAccess.Frozen registryAccess;

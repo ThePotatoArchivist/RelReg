@@ -5,8 +5,6 @@ import archives.tater.relreg.impl.ReloadableRegistriesImpl;
 import net.fabricmc.fabric.api.event.registry.DynamicRegistries;
 
 import com.mojang.serialization.Codec;
-import net.minecraft.client.multiplayer.ClientLevel;
-import net.minecraft.client.multiplayer.ClientPacketListener;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.server.MinecraftServer;
@@ -24,8 +22,7 @@ import java.util.List;
  * <p>
  * Reloadable registries do not appear the registry access returned by {@link Level#registryAccess()}, they can only
  * be accessed through {@link MinecraftServer#reloadableRegistries()} or
- * {@link ClientPacketListener#relreg_reloadableRegistries()}/{@link ClientLevel#relreg_reloadableRegistries()} (if
- * synced). Otherwise, they act like normal registries.
+ * {@link HasReloadableRegistries#relreg_reloadableRegistries()}. Otherwise, they act like normal registries.
  * <p>
  * Registration is similar to {@link DynamicRegistries}.
  */

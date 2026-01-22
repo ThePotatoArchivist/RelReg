@@ -1,6 +1,6 @@
 package archives.tater.relreg.mixin.client;
 
-import archives.tater.relreg.api.client.HasClientReloadableRegistries;
+import archives.tater.relreg.api.HasReloadableRegistries;
 
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
@@ -11,7 +11,7 @@ import net.minecraft.client.multiplayer.ClientPacketListener;
 import net.minecraft.core.RegistryAccess;
 
 @Mixin(ClientLevel.class)
-public class ClientLevelMixin implements HasClientReloadableRegistries {
+public class ClientLevelMixin implements HasReloadableRegistries {
     @Shadow
     @Final
     private ClientPacketListener connection;

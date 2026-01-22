@@ -117,7 +117,7 @@ public class ReloadableRegistriesImpl implements ModInitializer {
 		CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
 			dispatcher.register(literal("relreg_server")
 					.then(argument("registry", IdentifierArgument.id()).executes(command -> executeListRegistry(
-							command.getSource().getServer().reloadableRegistries().lookup(),
+							command.getSource().getServer().relreg_reloadableRegistries(),
 							IdentifierArgument.getId(command, "registry"),
 							text -> command.getSource().sendSuccess(() -> text, false)
 					)))
@@ -135,7 +135,7 @@ public class ReloadableRegistriesImpl implements ModInitializer {
 
 		ServerPlayerEvents.JOIN.register(serverPlayer ->
 				ServerPlayNetworking.send(serverPlayer, getSyncPayload(
-						(RegistryAccess) serverPlayer.level().getServer().reloadableRegistries().lookup()
+                        serverPlayer.level().getServer().relreg_reloadableRegistries()
 				))
 		);
 
